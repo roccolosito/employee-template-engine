@@ -10,6 +10,117 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+function initalize(){
+    return inquirer.prompt([
+      {
+        type: "input",
+        name: "name",
+        message: `What is your manager's name?`
+      },
+      {
+        type: "input",
+        name: "id",
+        message: `What is your manager's ID?`
+      },
+      {
+        type: "input",
+        name: "email",
+        message: `What is your manager's email?`
+      },
+      {
+        type: "input",
+        name: "officeNumber",
+        message: `What is your manager's office number?`
+      }
+    ])
+  };
+
+  function buildTeam(){
+    inquirer.prompt([
+      {
+        type: "list",
+        name: "role",
+        message:"What type of team member would you like to add?",
+        choices: ["Engineer", "Intern", "No other team members to add."]
+      }
+
+    ]).then((answer)=> {
+      if (answer.role === "Engineer"){
+        return inquirer.prompt([
+          {
+            type: "input",
+            name: "name",
+            message: `What is your engineer's name?`
+          },
+          {
+            type: "input",
+            name: "id",
+            message: `What is your engineer's ID?`
+          },
+          {
+            type: "input",
+            name: "email",
+            message: `What is your engineer's email?`
+          },
+          {
+            type: "input",
+            name: "github",
+            message: `What is your engineer's GitHub??`
+          }
+        ]).then((answers)=>{
+          let engineer = new Engineer(answers.name, answers.id, answers.email,answers.github);
+          team.splice(team.length-1,0,engineer.getHTML());
+          buildTeam();
+        })
+      }
+      if (answer.role === "Intern"){
+        return inquirer.prompt([
+          {
+            type: "input",
+            name: "name",
+            message: `What is your intern's name?`
+          },
+          {
+            type: "input",
+            name: "id",
+            message: `What is your intern's ID?`
+          },
+          {
+            type: "input",
+            name: "email",
+            message: `What is your intern's email?`
+          },
+          {
+            type: "input",
+            name: "school",
+            message: `What is your intern's school?`
+          }
+        ]).then((answers)=>{
+          let intern = new Intern(answers.name, answers.id, answers.email,answers.school);
+          team.splice(team.length-1,0,intern.getHTML());
+          buildTeam();
+        })
+      }
+  
+      return printHTML(team);
+    });
+  }
+  function printHTML(team){
+    fs.writeFile(outputPath, team, (err) => {
+      if(err) {
+        throw err;
+      };
+      console.log("Your team has been constructed!");
+    });
+    open("team.html");
+    };
+  
+  initalize()
+  .then((answers)=>{
+    const manager = new Manager(answers.name, answers.id, answers.email,answers.officeNumber);
+    team.splice(team.length-1,0,manager.getHTML());
+    buildTeam();
+  });
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -20,7 +131,7 @@ const render = require("./lib/htmlRenderer");
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
+// `output` folder. You can use the variable `outputPath` above to target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
@@ -33,22 +144,3 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
-
-const addEmployee = 
-
-
-
-function writeToFile(fileName, data) {
-    fs.writeFileSync(fileName, data);
-}
-
-function init() {
-    inquirer
-        .prompt(questions)
-        .then(answers => {
-            writeToFile("team.html", generateMd.generateMarkdown(answers));
-
-        });
-}
-
-init();
