@@ -9,11 +9,11 @@ An app that allows members of a software engineering team to generate each membe
 
 ## Visuals
 
-### Screencast Run-through
+**Screencast Run-through**
 
 ![TutorialGif](./Assets/team.gif)
 
-### Summary Page Example
+**Team Summary Page Example**
 
 ![Home](./Assets/home.png)
 
