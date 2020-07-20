@@ -31,7 +31,7 @@ function initalize() {
             type: "input",
             name: "officeNumber",
             message: `What is your manager's office number?`
-        }
+        },
     ])
 };
 
@@ -44,9 +44,9 @@ function buildTeam() {
             choices: ["Engineer", "Intern", "No other team members to add."]
         }
 
-    ]).then((answer) => {
+    ]).then(async (answer) => {
         if (answer.role === "Engineer") {
-            return inquirer.prompt([
+            const answers = await inquirer.prompt([
                 {
                     type: "input",
                     name: "name",
@@ -67,14 +67,13 @@ function buildTeam() {
                     name: "github",
                     message: `What is your engineer's GitHub??`
                 }
-            ]).then((answers) => {
-                let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-                team.push(engineer);
-                buildTeam();
-            })
+            ]);
+            let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+            team.push(engineer);
+            buildTeam();
         }
         if (answer.role === "Intern") {
-            return inquirer.prompt([
+            const answers_1 = await inquirer.prompt([
                 {
                     type: "input",
                     name: "name",
@@ -95,11 +94,10 @@ function buildTeam() {
                     name: "school",
                     message: `What is your intern's school?`
                 }
-            ]).then((answers) => {
-                let intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-                team.push(intern);
-                buildTeam();
-            })
+            ]);
+            let intern = new Intern(answers_1.name, answers_1.id, answers_1.email, answers_1.school);
+            team.push(intern);
+            buildTeam();
         }
 
         return printHTML(team);
