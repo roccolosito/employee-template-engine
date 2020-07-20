@@ -1,4 +1,4 @@
-## Project Title 
+# Project Title 
 Template Engine - Employee Summary
 
 ## Description
@@ -6,7 +6,13 @@ An app that allows members of a software engineering team to generate each membe
 
 ## Visuals
 
-![TutorialGif](./assets/tutorial.gif)
+### Screencast Run-through
+
+![TutorialGif](./Assets/team.gif)
+
+### Summary Page Example
+
+![Home](./Assets/home.png)
 
 ### Table of Contents
 * [Installation](#Installation)
