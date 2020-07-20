@@ -1,5 +1,5 @@
 // Code to define and export the Intern class.
-const Employee = require("./Employee").default;
+const Employee = require("./Employee");
 
 class Intern extends Employee {
     constructor(name, id, email, school) {

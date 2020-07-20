@@ -68,8 +68,8 @@ function initalize(){
             message: `What is your engineer's GitHub??`
           }
         ]).then((answers)=>{
-          let engineer = new Engineer(answers.name, answers.id, answers.email,answers.github);
-          team.splice(team.length-1,0,engineer.getHTML());
+          let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+          team.push(engineer);
           buildTeam();
         })
       }
@@ -96,8 +96,8 @@ function initalize(){
             message: `What is your intern's school?`
           }
         ]).then((answers)=>{
-          let intern = new Intern(answers.name, answers.id, answers.email,answers.school);
-          team.splice(team.length-1,0,intern.getHTML());
+          let intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+          team.push(intern);
           buildTeam();
         })
       }
@@ -105,20 +105,36 @@ function initalize(){
       return printHTML(team);
     });
   }
-  function printHTML(team){
-    fs.writeFile(outputPath, team, (err) => {
-      if(err) {
-        throw err;
-      };
-      console.log("Your team has been constructed!");
-    });
-    open("team.html");
-    };
+
+  //renders employee data as HTML
+const printHTML = async (team) => {
+    try {
+        const employeeHTML = await render(team);
+        fs.writeFile(outputPath, employeeHTML, (err) => {
+            if (err) {
+                throw err;
+            } else {
+                console.log("Success. See team.html");
+            }
+        } 
+        )} catch (error) {
+                throw error;
+        };
+};
+//   function printHTML(team){
+//     fs.writeFile(outputPath, team, (err) => {
+//       if(err) {
+//         throw err;
+//       };
+//       console.log("Your team has been constructed!");
+//     });
+//     open("team.html");
+//     };
   
   initalize()
   .then((answers)=>{
     const manager = new Manager(answers.name, answers.id, answers.email,answers.officeNumber);
-    team.splice(team.length-1,0,manager.getHTML());
+    team.push(manager);
     buildTeam();
   });
 
