@@ -1,3 +1,6 @@
+[![Contributors](https://img.shields.io/github/contributors/roccolosito/employee-template-engine)](https://github.com/roccolosito/employee-template-engine/graphs/contributors)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Project Title 
 Template Engine - Employee Summary
 
@@ -38,8 +41,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 To test, input 'npm run test' in the command-line.
 
 ## Questions
-[![Repo Owner Image](https://avatars.githubusercontent.com/roccolosito?s=100)](")
-Please email any questions you may have directly to the repo owner.
+
 
 - - -
 © 2020 Rocco Losito. All Rights Reserved.
