@@ -42,7 +42,7 @@ To test, input 'npm run test' in the command-line.
 
 ## Questions
 [![Repo Owner Image](https://avatars.githubusercontent.com/roccolosito?s=100)](")
-Please email any questions you may have directly to the repo owner.
+Please reach out to the repo owner with any questions you may have.
 
 - - -
 © 2020 Rocco Losito. All Rights Reserved.
