@@ -1,16 +1,19 @@
+[![Contributors](https://img.shields.io/github/contributors/roccolosito/employee-template-engine)](https://github.com/roccolosito/employee-template-engine/graphs/contributors)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Project Title 
-Template Engine - Employee Summary
+**Template Engine - Employee Summary**
 
 ## Description
 An app that allows members of a software engineering team to generate each member's info directly from the command line.
 
 ## Visuals
 
-### Screencast Run-through
+**Screencast Run-through**
 
 ![TutorialGif](./Assets/team.gif)
 
-### Summary Page Example
+**Team Summary Page Example**
 
 ![Home](./Assets/home.png)
 
@@ -39,7 +42,8 @@ To test, input 'npm run test' in the command-line.
 
 ## Questions
 [![Repo Owner Image](https://avatars.githubusercontent.com/roccolosito?s=100)](")
-Please email any questions you may have directly to the repo owner.
+
+Please reach out to the repo owner with any questions you may have.
 
 - - -
 © 2020 Rocco Losito. All Rights Reserved.
