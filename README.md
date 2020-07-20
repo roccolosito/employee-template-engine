@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Project Title 
-**Template Engine - Employee Summary
+**Template Engine - Employee Summary**
 
 ## Description
 An app that allows members of a software engineering team to generate each member's info directly from the command line.
