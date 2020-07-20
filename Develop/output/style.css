@@ -1,0 +1,11 @@
+.container {
+    align-content: center;
+    min-width:100%;
+};
+
+@media all and (max-width: 560px) {
+    .container {
+        text-align: center;
+        width: 100%!important;
+    };
+};
